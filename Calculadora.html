@@ -1,0 +1,44 @@
+<script>
+
+    function somar (a,b) {
+        return a + b
+    }
+
+function subtrair (a,b) {
+        return a - b
+    }
+
+function multiplicar (a,b) {
+        return a * b
+    }
+
+function dividir (a,b) {
+        return a / b
+    }
+let sair = true
+while(sair){
+ let a = parseInt(prompt("Qual o primeiro numero?"))
+ let b = parseInt(prompt("Qual o segundo numero?"))
+ let operador = prompt("Qual operador você quer usar? ( + , - , x , / )")
+ if(operador == "+"){
+  console.log(somar(a,b))
+ }
+ if(operador == "-"){
+  console.log(subtrair(a,b))
+ }
+ if(operador == "x" || operador == "X"){
+  console.log(multiplicar(a,b))
+ }
+ if(operador == "/"){
+  console.log(dividir(a,b))
+ }
+ let decidir = prompt("Você quer fazer outra operação? (S / N)")
+ if(decidir == "N" || decidir == "n"){
+  sair = false
+ }
+ else if(decidir != "S" && decidir != "s"){
+  console.log("Você digitou algo errado!")
+ }
+}
+
+    </script>
