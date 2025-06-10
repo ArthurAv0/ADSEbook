@@ -1,52 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <script>
-        // Código da calculadora que você me enviou
         function somar(a, b) { return a + b; }
         function subtrair(a, b) { return a - b; }
         function multiplicar(a, b) { return a * b; }
         function dividir(a, b) { return a / b; }
 
-        let continuar = true;
+        function iniciarCalculadora() {
+            let continuar = true;
 
-        while (continuar) {
-            let a = parseInt(prompt("Qual o primeiro número?"));
-            let b = parseInt(prompt("Qual o segundo número?"));
-            let operador = prompt("Qual operador você quer usar? (+, -, x, /)");
+            while (continuar) {
+                let a = parseInt(prompt("Qual o primeiro número?"));
+                let b = parseInt(prompt("Qual o segundo número?"));
+                let operador = prompt("Qual operador você quer usar? (+, -, x, /)");
 
-            let resultado;
+                if (!operador) {
+                    alert("Operador não informado.");
+                    continue;
+                }
 
-            if (operador == "+") {
-                resultado = somar(a, b);
-            } else if (operador == "-") {
-                resultado = subtrair(a, b);
-            } else if (operador.toLowerCase() == "x") {
-                resultado = multiplicar(a, b);
-            } else if (operador == "/") {
-                resultado = dividir(a, b);
-            } else {
-                console.log("Operador inválido!");
-                continue;
-            }
+                let resultado;
 
-            console.log("Resultado: " + resultado);
+                if (operador == "+") {
+                    resultado = somar(a, b);
+                } else if (operador == "-") {
+                    resultado = subtrair(a, b);
+                } else if (operador.toLowerCase() == "x") {
+                    resultado = multiplicar(a, b);
+                } else if (operador == "/") {
+                    resultado = dividir(a, b);
+                } else {
+                    alert("Operador inválido!");
+                    continue;
+                }
 
-            let decidir = prompt("Você quer fazer outra operação? (S / N)");
+                console.log("Resultado: " + resultado);
 
-            if (decidir == "N" || decidir == "n") {
-                continuar = false;
-            } else if (decidir != "S" && decidir != "s") {
-                console.log("Você digitou algo errado!");
+                let decidir = prompt("Você quer fazer outra operação? (S / N)");
+
+                if (!decidir || decidir.toUpperCase() == "N") {
+                    continuar = false;
+                } else if (decidir.toUpperCase() != "S") {
+                    console.log("Você digitou algo errado!");
+                }
             }
         }
     </script>
 </head>
 <body>
     <h1>Calculadora</h1>
-    <p>Abra o console para usar a calculadora interativa.</p>
+    <p>Abra o console e clique no botão abaixo para iniciar.</p>
+    <button onclick="iniciarCalculadora()">Iniciar Calculadora</button>
 </body>
 </html>
