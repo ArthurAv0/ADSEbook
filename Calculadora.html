@@ -1,44 +1,52 @@
-<script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script>
+        // Código da calculadora que você me enviou
+        function somar(a, b) { return a + b; }
+        function subtrair(a, b) { return a - b; }
+        function multiplicar(a, b) { return a * b; }
+        function dividir(a, b) { return a / b; }
 
-    function somar (a,b) {
-        return a + b
-    }
+        let continuar = true;
 
-function subtrair (a,b) {
-        return a - b
-    }
+        while (continuar) {
+            let a = parseInt(prompt("Qual o primeiro número?"));
+            let b = parseInt(prompt("Qual o segundo número?"));
+            let operador = prompt("Qual operador você quer usar? (+, -, x, /)");
 
-function multiplicar (a,b) {
-        return a * b
-    }
+            let resultado;
 
-function dividir (a,b) {
-        return a / b
-    }
-let sair = true
-while(sair){
- let a = parseInt(prompt("Qual o primeiro numero?"))
- let b = parseInt(prompt("Qual o segundo numero?"))
- let operador = prompt("Qual operador você quer usar? ( + , - , x , / )")
- if(operador == "+"){
-  console.log(somar(a,b))
- }
- if(operador == "-"){
-  console.log(subtrair(a,b))
- }
- if(operador == "x" || operador == "X"){
-  console.log(multiplicar(a,b))
- }
- if(operador == "/"){
-  console.log(dividir(a,b))
- }
- let decidir = prompt("Você quer fazer outra operação? (S / N)")
- if(decidir == "N" || decidir == "n"){
-  sair = false
- }
- else if(decidir != "S" && decidir != "s"){
-  console.log("Você digitou algo errado!")
- }
-}
+            if (operador == "+") {
+                resultado = somar(a, b);
+            } else if (operador == "-") {
+                resultado = subtrair(a, b);
+            } else if (operador.toLowerCase() == "x") {
+                resultado = multiplicar(a, b);
+            } else if (operador == "/") {
+                resultado = dividir(a, b);
+            } else {
+                console.log("Operador inválido!");
+                continue;
+            }
 
+            console.log("Resultado: " + resultado);
+
+            let decidir = prompt("Você quer fazer outra operação? (S / N)");
+
+            if (decidir == "N" || decidir == "n") {
+                continuar = false;
+            } else if (decidir != "S" && decidir != "s") {
+                console.log("Você digitou algo errado!");
+            }
+        }
     </script>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <p>Abra o console para usar a calculadora interativa.</p>
+</body>
+</html>
